@@ -21,5 +21,10 @@ public class PlayerMov : MonoBehaviour
         {
             Rb.AddForce(-moveSide * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+        if(transform.position.y < -1)
+        {
+            FindObjectOfType<GameManagement>().GameOver();
+            enabled = false;
+        }
     }
 }
